@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
 
-vector<vector<int>> powerSet(vector<int> &v, int i)
-{
+// vector<vector<int>> powerSet(vector<int> &v, int i)
+// {
     
-}
+// }
 
 int main()
 {
