@@ -1,8 +1,8 @@
 #include<iostream>
 using namespace std;
 
-bool isSorted(int arr[], int i, int n) {
-    if(i == n - 2) {
+bool isSorted(int arr[], int i, int& n) {
+    if(i >= n - 1) {
         return true;
     }
     if(arr[i] < arr[i + 1]) {
@@ -17,8 +17,9 @@ int main() {
 
     int n = 10;
 
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     // int arr[] = {10, 11, 15, 9, 7, 6, 44, 14, 78, 25};
-    int arr[] = {1, 2, 3, 4, 5};
+    // int arr[] = {1, 2, 3, 4, 5};
 
     bool isSort = isSorted(arr, 0, n);
 
