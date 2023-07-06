@@ -16,7 +16,7 @@ int reccursive(vector<int>& arr, int x) {
     for(int i = 0; i < arr.size(); i++) {
         int ans = reccursive(arr, x - arr[i]);
         if(ans != INT_MAX)
-        mini = min(mini, ans + 1);
+            mini = min(mini, ans + 1);
     }
 
     return mini;
