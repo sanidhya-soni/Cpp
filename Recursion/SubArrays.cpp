@@ -4,7 +4,7 @@
 using namespace std;
 
 void subarrays(vector<int> arr, int x) {
-    
+    // if()
 }
 
 int main() {
