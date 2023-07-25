@@ -1,6 +1,6 @@
-#include<iostream>
+#include <iostream>
 #include<vector>
-#include<limits.h>
+#include <limits.h>
 using namespace std;
 
 void merge(int arr[], int s, int e) {
