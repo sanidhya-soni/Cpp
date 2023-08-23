@@ -2,6 +2,7 @@
 #include <vector>
 #include <limits.h>
 #include <queue>
+#include <stack>
 using namespace std;
 
 class TreeNode {
@@ -118,6 +119,20 @@ void preOrderTraversal(TreeNode *root) {
     preOrderTraversal(root->right);
 }
 
+void preOrderTraversalLoop(TreeNode* root) {
+    stack<TreeNode*> s;
+    s.push(root);
+    while(!s.empty()) {
+        TreeNode* temp = s.top();
+        s.pop();
+        cout << temp->val << " ";
+        if(temp->right)
+            s.push(temp->right);
+        if(temp->left)
+            s.push(temp->left);
+    }
+}
+
 // For Printing Post Order Traversal (Left Right Root)
 void postOrderTraversal(TreeNode *root) {
     if(root == nullptr)
@@ -125,6 +140,26 @@ void postOrderTraversal(TreeNode *root) {
     postOrderTraversal(root->left);
     postOrderTraversal(root->right);
     cout << root->val << " ";
+}
+
+void postOrderTraversalLoop(TreeNode* root) {
+    stack<TreeNode*> s1;
+    stack<int> s2;
+    s1.push(root);
+    while(!s1.empty()) {
+        TreeNode* temp = s1.top();
+        s2.push(temp->val);
+        s1.pop();
+
+        if(temp->left)
+            s1.push(temp->left);
+        if(temp->right)
+            s1.push(temp->right);
+    }
+    while(!s2.empty()) {
+        cout << s2.top() << " ";
+        s2.pop();
+    }
 }
 
 // For Printing Level-Order Traversal in Single line
@@ -183,8 +218,16 @@ int main() {
     preOrderTraversal(root);
     cout << endl;
 
+    cout << "PreOrder Loop: ";
+    preOrderTraversalLoop(root);
+    cout << endl;
+
     cout << "PostOrder: ";
     postOrderTraversal(root);
+    cout << endl;
+
+    cout << "PostOrder Loop: ";
+    postOrderTraversalLoop(root);
     cout << endl;
 
     cout << "LevelOrder: ";
