@@ -3,12 +3,33 @@
 #include <limits.h>
 using namespace std;
 
+class Test {
+    public:
+    Test() {
+        cout << "Hey" << endl;
+    }
+
+    // Copy constructor
+    Test(const Test& temp) {
+        cout << "Copy" << endl;
+    }
+
+    Test fun(int i) {
+        cout << i << " ";
+        return *this;
+    }
+};
+
 int main() {
 
-    int ch = 'a';
-    int x = '4' - '0';
+    vector<int> x;
+    x.push_back(10);
+    x.push_back(10);
 
-    cout << ch << endl;
+    x.erase(x.begin());
+    x.erase(x.begin());
+
+    cout << x.size() << endl;
 
     return 0;
 }
