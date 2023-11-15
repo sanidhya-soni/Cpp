@@ -96,14 +96,24 @@ public:
             cout << endl;
         }
     }
+
+    void printAdjacencyListWithWeight() {
+        for(auto node: adjListWeight) {
+            cout << node.first << " -> ";
+            for(auto neighbor: node.second) {
+                cout << "{ " << neighbor.first << ", " << neighbor.second << " }, ";
+            }
+            cout << endl;
+        }
+    }
 };
 
 int main() {
 
     Graph g;
 
-    g.createAdjaccencyMatrix();
-    g.printAdjacencyMatrix();
+    g.createAdjacencyListWithWeight();
+    g.printAdjacencyListWithWeight();
 
     return 0;
 }
