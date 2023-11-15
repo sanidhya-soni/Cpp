@@ -9,9 +9,10 @@ class Graph {
 public:
 
     int nodes, edges;
+    bool undirected;
     vector<vector<int>> adjMatrix;
     unordered_map<int, list<int>> adjList;
-    unordered_map<int, list<int>> adjListWeight;
+    unordered_map<int, list<pair<int, int>>> adjListWeight;
 
     void createAdjaccencyMatrix() {
         cout << "Enter Nuber of Nodes: ";
@@ -47,6 +48,44 @@ public:
 
     void createAdjacencyList() {
 
+        int u, v;
+        cout << "If the graph undirected then enter 1 else 0 for directed: ";
+        cin >> undirected;
+        cout << "Enter the number of edges: ";
+        cin >> edges;
+
+        for(int i = 0; i < edges; i++) {
+            cout << "Enter edge: ";
+            cin >> u >> v;
+            addEdgeToAdjList(u, v);
+        }
+    }
+
+    void addEdgeToAdjList(int u, int v) {
+        adjList[u].push_back(v);
+        if(undirected)
+        adjList[v].push_back(u);
+    }
+
+    void createAdjacencyListWithWeight() {
+
+        int u, v, w;
+        cout << "If the graph undirected then enter 1 else 0 for directed: ";
+        cin >> undirected;
+        cout << "Enter the number of edges: ";
+        cin >> edges;
+
+        for(int i = 0; i < edges; i++) {
+            cout << "Enter edge with weight: ";
+            cin >> u >> v >> w;
+            addEdgeWithWeightToAdjList(u, v, w);
+        }
+    }
+
+    void addEdgeWithWeightToAdjList(int u, int v, int w) {
+        adjListWeight[u].push_back(make_pair(v, w));
+        if(undirected)
+            adjListWeight[v].push_back(make_pair(u, w));
     }
 
     void printAdjacencyMatrix() {
