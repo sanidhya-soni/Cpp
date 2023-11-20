@@ -88,6 +88,8 @@ public:
             adjListWeight[v].push_back(make_pair(u, w));
     }
 
+// Printing
+
     void printAdjacencyMatrix() {
         for(int i = 0; i < nodes; i++) {
             for(int j = 0; j < nodes; j++) {
